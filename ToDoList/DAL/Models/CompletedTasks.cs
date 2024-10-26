@@ -20,6 +20,6 @@ namespace DAL.Models
 
         //Foreign keys
         public User? user { get; set; }
-        public Task? task { get; set; }
+        public TaskList? task { get; set; }
     }
 }
