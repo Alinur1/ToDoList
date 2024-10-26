@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Models
 {
-    public class CompletedTasks
+    public class CompletedTask
     {
         [Key]
         public int completed_task_id { get; set; }

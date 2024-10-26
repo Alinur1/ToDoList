@@ -18,7 +18,7 @@ namespace DAL.Models
         public int? task_id { get; set; }
 
         //Foreign keys
-        public CompletedTasks? completedTasks { get; set; }
+        public CompletedTask? completedTasks { get; set; }
         public TaskList? task { get; set; }
         public User? user { get; set; }
     }

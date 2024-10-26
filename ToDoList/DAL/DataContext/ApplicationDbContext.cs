@@ -15,7 +15,7 @@ namespace DAL.DataContext
 
         }
 
-        public DbSet<CompletedTasks> completed_task { get; set; }
+        public DbSet<CompletedTask> completed_task { get; set; }
         public DbSet<TaskList> task_list { get; set; }
         public DbSet<Trash> trash { get; set; }
         public DbSet<User> user { get; set; }
