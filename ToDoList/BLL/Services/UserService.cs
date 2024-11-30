@@ -1,4 +1,5 @@
-﻿using ToDoList.BLL.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using ToDoList.BLL.Interfaces;
 using ToDoList.DAL.Models;
 using ToDoList.DbAccess;
 
@@ -11,29 +12,48 @@ namespace ToDoList.BLL.Services
         {
             _context = context;
         }
-        public Task<User> AddUserAsync(User user)
+
+        public async Task<User> AddUserAsync(User user)
         {
-            throw new NotImplementedException();
+            await _context.users.AddAsync(user);
+            await _context.SaveChangesAsync();
+            return user;
         }
 
-        public Task<bool> DeleteUserAsync(int id)
+        public async Task<bool> DeleteUserAsync(int id)
         {
-            throw new NotImplementedException();
+            var existingUser = await _context.users.FindAsync(id);
+            if(existingUser != null)
+            {
+                _context.users.Remove(existingUser);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            return false;
         }
 
-        public Task<IEnumerable<User>> GetAllUsersAsync()
+        public async Task<IEnumerable<User>> GetAllUsersAsync()
         {
-            throw new NotImplementedException();
+            return await _context.users.ToListAsync();
         }
 
-        public Task<User>? GetUserByIdAsync(int id)
+        public async Task<User> GetUserByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.users.FindAsync(id);
         }
 
-        public Task<User> UpdateUserAsync(User user)
+        public async Task<User> UpdateUserAsync(User user)
         {
-            throw new NotImplementedException();
+            var existingUser = await _context.users.FindAsync(user.id);
+            if(existingUser != null)
+            {
+                existingUser.full_name = user.full_name;
+                existingUser.email = user.email;
+
+                _context.users.Update(existingUser);
+                await _context.SaveChangesAsync();
+            }
+            return existingUser ?? throw new KeyNotFoundException("User not found");
         }
     }
 }
