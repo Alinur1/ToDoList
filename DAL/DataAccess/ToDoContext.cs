@@ -16,5 +16,6 @@ namespace DAL.DataAccess
         }
 
         public DbSet<User> users { get; set; }
+        public DbSet<TaskList> task_list { get; set; }
     }
 }
