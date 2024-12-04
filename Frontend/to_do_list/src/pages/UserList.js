@@ -25,6 +25,7 @@ function UserList() {
     <div>
       <h1>User List</h1>
       <Link to="/add-user">Add User</Link>
+      <Link to="/task-list">Task List</Link>
       <table>
         <thead>
           <tr>

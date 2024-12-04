@@ -31,6 +31,10 @@ import UserList from './pages/UserList';
 import UserDetails from './pages/UserDetails';
 import AddUser from './pages/AddUser';
 import UpdateUser from './pages/UpdateUser';
+import TaskList from './pages/TaskList';
+import TaskDetails from './pages/TaskDetails';
+import AddTask from './pages/AddTask';
+import UpdateTask from './pages/UpdateTask';
 
 function App() {
   return (
@@ -40,6 +44,10 @@ function App() {
         <Route path="/user/:id" element={<UserDetails />} />
         <Route path="/add-user" element={<AddUser />} />
         <Route path="/update-user/:id" element={<UpdateUser />} />
+        <Route path="/task-list" element={<TaskList />} />
+        <Route path="/tasks/:id" element={<TaskDetails />} />
+        <Route path="/add-task" element={<AddTask />} />
+        <Route path="/update-task/:id" element={<UpdateTask />} />
       </Routes>
     </Router>
   );
