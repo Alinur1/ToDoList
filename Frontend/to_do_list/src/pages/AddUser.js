@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { addUser } from '../services/userService';
 
 function AddUser() {
-  const [user, setUser] = useState({ name: '', email: '' });
+  const [user, setUser] = useState({ full_name: '', username: '', email: '', password: '', role: '' });
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
@@ -30,8 +30,18 @@ function AddUser() {
           <label>Name:</label>
           <input
             type="text"
-            name="name"
-            value={user.name}
+            name="username"
+            value={user.username}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label>Username:</label>
+          <input
+            type="text"
+            name="username"
+            value={user.username}
             onChange={handleChange}
             required
           />
@@ -42,6 +52,26 @@ function AddUser() {
             type="email"
             name="email"
             value={user.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label>Password:</label>
+          <input
+            type="password"
+            name="password"
+            value={user.password}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label>Role:</label>
+          <input
+            type="text"
+            name="role"
+            value={user.role}
             onChange={handleChange}
             required
           />

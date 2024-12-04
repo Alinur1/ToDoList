@@ -4,7 +4,7 @@ import { getUserById, updateUser } from '../services/userService';
 
 function UpdateUser() {
   const { id } = useParams();
-  const [user, setUser] = useState({ name: '', email: '' });
+  const [user, setUser] = useState({ full_name: '', username: '', email: '', password: '', role: '' });
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
@@ -43,8 +43,18 @@ function UpdateUser() {
           <label>Name:</label>
           <input
             type="text"
-            name="name"
-            value={user.name}
+            name="full_name"
+            value={user.full_name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label>Username:</label>
+          <input
+            type="text"
+            name="username"
+            value={user.username}
             onChange={handleChange}
             required
           />
@@ -55,6 +65,26 @@ function UpdateUser() {
             type="email"
             name="email"
             value={user.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label>Password:</label>
+          <input
+            type="password"
+            name="password"
+            value={user.password}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label>Role:</label>
+          <input
+            type="text"
+            name="role"
+            value={user.role}
             onChange={handleChange}
             required
           />
